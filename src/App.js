@@ -161,57 +161,57 @@ function App() {
   const [error, setError] = useState(null);
   const [selectedLead, setSelectedLead] = useState(null);
 
-  useEffect(() => {
-    // Check if we're running in Monday.com context
-    if (window.location.hostname === 'localhost') {
-      // Use mock data for local development
-      setLoading(true);
-      setTimeout(() => {
-        setItems(mockData);
-        setSelectedLead(mockData[0]); // Select Michael Stone by default
-        setLoading(false);
-      }, 1500); // Simulate loading time
-    } else {
-      // Original Monday.com integration
-      monday.listen("context", async (res) => {
-        try {
+      useEffect(() => {
+        // Check if we're running in Monday.com context
+        if (window.location.hostname === 'localhost' || window.location.hostname.includes('vercel.app')) {
+          // Use mock data for local development and Vercel deployment
           setLoading(true);
-          const { itemIds = [], boardId } = res.data;
-          
-          if (itemIds.length > 0) {
-            const query = `query {
-              items(ids: [${itemIds.join(",")}]) {
-                id
-                name
-                group {
-                  title
-                }
-                column_values {
-                  id
-                  title
-                  text
-                  value
-                  type
-                }
-              }
-            }`;
+          setTimeout(() => {
+            setItems(mockData);
+            setSelectedLead(mockData[0]); // Select Michael Stone by default
+            setLoading(false);
+          }, 1500); // Simulate loading time
+        } else {
+          // Original Monday.com integration
+          monday.listen("context", async (res) => {
+            try {
+              setLoading(true);
+              const { itemIds = [], boardId } = res.data;
+              
+              if (itemIds.length > 0) {
+                const query = `query {
+                  items(ids: [${itemIds.join(",")}]) {
+                    id
+                    name
+                    group {
+                      title
+                    }
+                    column_values {
+                      id
+                      title
+                      text
+                      value
+                      type
+                    }
+                  }
+                }`;
 
-            const response = await monday.api(query);
-            setItems(response.data.items);
-            if (response.data.items.length > 0) {
-              setSelectedLead(response.data.items[0]);
+                const response = await monday.api(query);
+                setItems(response.data.items);
+                if (response.data.items.length > 0) {
+                  setSelectedLead(response.data.items[0]);
+                }
+              } else {
+                setItems([]);
+              }
+            } catch (err) {
+              setError(err.message);
+            } finally {
+              setLoading(false);
             }
-          } else {
-            setItems([]);
-          }
-        } catch (err) {
-          setError(err.message);
-        } finally {
-          setLoading(false);
+          });
         }
-      });
-    }
-  }, []);
+      }, []);
 
   const getColumnValue = (item, columnId) => {
     const column = item.column_values.find(col => col.id === columnId);
