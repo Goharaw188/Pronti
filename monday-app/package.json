@@ -1,0 +1,41 @@
+{
+  "name": "pronti-sales-pipeline-monday-app",
+  "version": "1.0.0",
+  "description": "Monday.com app for Pronti Sales Pipeline - Beautiful lead management interface",
+  "main": "manifest.json",
+  "scripts": {
+    "build": "echo 'No build step required for Monday.com app'",
+    "validate": "node validate-manifest.js",
+    "package": "zip -r pronti-sales-pipeline-monday-app.zip ."
+  },
+  "keywords": [
+    "monday.com",
+    "app",
+    "crm",
+    "sales",
+    "pipeline",
+    "leads",
+    "pronti"
+  ],
+  "author": {
+    "name": "Pronti Technologies",
+    "email": "admin@pronti.au",
+    "url": "https://pronti.vercel.app"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Goharaw188/Pronti.git"
+  },
+  "homepage": "https://pronti.vercel.app",
+  "bugs": {
+    "url": "https://pronti.vercel.app/support",
+    "email": "admin@pronti.au"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {
+    "monday-sdk": "^1.0.0"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Pronti Sales Pipeline",
+  "version": "1.0.0",
+  "description": "Beautiful lead management interface for Pronti Sales Pipeline",
+  "author": "Pronti Technologies",
+  "email": "admin@pronti.au",
+  "website": "https://pronti.vercel.app",
+  "appType": "view",
+  "permissions": [
+    "me:read",
+    "boards:read",
+    "boards:write",
+    "items:read",
+    "items:write",
+    "workspaces:read"
+  ],
+  "scopes": [
+    "me:read",
+    "boards:read",
+    "boards:write", 
+    "items:read",
+    "items:write",
+    "workspaces:read"
+  ],
+  "capabilities": {
+    "boardView": {
+      "enabled": true,
+      "supportedViewTypes": ["kanban", "table", "timeline"]
+    },
+    "itemView": {
+      "enabled": true
+    },
+    "dashboardWidget": {
+      "enabled": true
+    }
+  },
+  "settings": {
+    "boardId": "2073203161",
+    "workspaceId": "2299275"
+  },
+  "iframe": {
+    "url": "https://pronti.vercel.app",
+    "width": "100%",
+    "height": "100vh"
+  },
+  "authentication": {
+    "type": "oauth2",
+    "authorizationUrl": "https://auth.monday.com/oauth2/authorize",
+    "tokenUrl": "https://auth.monday.com/oauth2/token"
+  },
+  "webhooks": {
+    "enabled": true,
+    "events": [
+      "item.create",
+      "item.update",
+      "item.delete",
+      "board.create",
+      "board.update"
+    ]
+  },
+  "support": {
+    "email": "admin@pronti.au",
+    "website": "https://pronti.vercel.app"
+  }
+}
