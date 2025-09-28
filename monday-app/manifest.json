@@ -5,7 +5,7 @@
   "author": {
     "name": "Pronti Technologies",
     "email": "admin@pronti.au",
-    "website": "https://pronti-r0d1zy1jb-gohars-projects-7febd079.vercel.app"
+    "website": "https://pronti-1xw7oewwz-gohars-projects-7febd079.vercel.app"
   },
   "appType": "view",
   "permissions": [
@@ -45,7 +45,7 @@
     "defaultView": "48412682"
   },
   "iframe": {
-    "url": "https://pronti-r0d1zy1jb-gohars-projects-7febd079.vercel.app",
+    "url": "https://pronti-1xw7oewwz-gohars-projects-7febd079.vercel.app",
     "width": "100%",
     "height": "100vh",
     "sandbox": "allow-scripts allow-same-origin allow-forms allow-popups"
@@ -67,11 +67,11 @@
       "column.create",
       "column.update"
     ],
-    "url": "https://pronti-r0d1zy1jb-gohars-projects-7febd079.vercel.app/webhooks/monday"
+    "url": "https://pronti-1xw7oewwz-gohars-projects-7febd079.vercel.app/webhooks/monday"
   },
   "support": {
     "email": "admin@pronti.au",
-    "website": "https://pronti-r0d1zy1jb-gohars-projects-7febd079.vercel.app",
+    "website": "https://pronti-1xw7oewwz-gohars-projects-7febd079.vercel.app",
     "documentation": "https://pronti.vercel.app/docs"
   },
   "privacy": {
